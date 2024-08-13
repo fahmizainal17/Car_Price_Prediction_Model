@@ -8,27 +8,25 @@
 5. [Model Building](#model-building)
 6. [Model Evaluation](#model-evaluation)
 7. [Additional Models Tested](#additional-models-tested)
-8. [Future Studies: Multicollinearity](#future-studies-multicollinearity)
-9. [Model Saving & Deployment](#model-saving--deployment)
-10. [Results and Conclusions](#results-and-conclusions)
-11. [Next Steps](#next-steps)
-12. [Getting Started](#getting-started)
-13. [References](#references)
+8. [Model Saving & Deployment](#model-saving--deployment)
+9. [Results and Conclusions](#results-and-conclusions)
+10. [Next Steps](#next-steps)
+11. [Getting Started](#getting-started)
+12. [References](#references)
 
 ## Introduction
-This project focuses on predicting car prices using machine learning techniques, with a primary focus on the Random Forest Regressor model. We also explored multiple linear regression and linear regression models for comparison. Feature engineering was performed to create new variables that could improve model performance. We have identified multicollinearity as a potential area for further study.
+This project aims to predict car prices using machine learning techniques, with a primary focus on the Random Forest Regressor model. The project includes exploring multiple linear regression and linear regression models for comparative purposes. Feature engineering was utilized to create new variables that could potentially enhance model performance.
 
 ## Project Overview
-The project is divided into several key sections:
-- **Data Preparation:** Cleaning and preprocessing the dataset.
-- **Feature Engineering:** Creating new features to enhance model performance.
-- **Model Building:** Constructing and tuning the Random Forest Regressor, and testing other models for comparison.
-- **Model Evaluation:** Evaluating model performance using metrics such as R2 Score, RMSE, and Cross-Validation.
-- **Future Studies: Multicollinearity:** Planning a future study to explore the impact of multicollinearity on our model.
-- **Model Saving & Deployment:** Saving the trained model for future use and possible deployment.
+The project comprises the following key sections:
+- **Data Preparation:** Involves cleaning and preprocessing the dataset.
+- **Feature Engineering:** Includes creating new features to improve model accuracy.
+- **Model Building:** Focuses on constructing and tuning the Random Forest Regressor, with comparison to other models.
+- **Model Evaluation:** Evaluates model performance using metrics such as R2 Score, RMSE, and Cross-Validation.
+- **Model Saving & Deployment:** Details on saving and deploying the trained model for future use.
 
 ## Data Preparation
-The dataset used for this project includes the following columns:
+The dataset used in this project includes the following columns:
 - `car_brand`
 - `car_model`
 - `car_variant`
@@ -45,51 +43,64 @@ The dataset used for this project includes the following columns:
 - `car_age_at_sale` (Engineered feature)
 - `price` (Target variable)
 
-Steps taken:
+Key steps taken:
 - Handling missing values and outliers.
 - Encoding categorical variables.
 - Splitting the data into training and testing sets.
 
 ## Feature Engineering
-To enhance the model's predictive capability, we engineered two new features:
-- **`days_on_market`:** The number of days a car was listed for sale.
-- **`car_age_at_sale`:** The age of the car at the time of sale.
+To enhance the model's predictive capability, two new features were engineered:
+- **`days_on_market`:** Represents the number of days a car was listed for sale.
+- **`car_age_at_sale`:** Represents the car's age at the time of sale.
 
-These features were included to capture additional dimensions of car valuation that might influence the selling price.
+These features are intended to capture additional dimensions of car valuation that might affect the selling price.
 
 ## Model Building
 ### Random Forest Regressor
-The primary model used in this project was the Random Forest Regressor, which was integrated into a pipeline for ease of use and reproducibility.
+The primary model used is the Random Forest Regressor, integrated into a pipeline for streamlined processing.
 
 ```python
-rf3 = Pipeline([
-    ('ColumnTransformer', transformer),  # Data transformation steps
-    ('Model', RandomForestRegressor())  # Random Forest model
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.pipeline import Pipeline
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+
+# Define the transformer for feature processing
+transformer = ColumnTransformer(
+    transformers=[
+        ('num', StandardScaler(), numerical_features),
+        ('cat', OneHotEncoder(handle_unknown='ignore'), categorical_features)
+    ],
+    remainder='drop'
+)
+
+# Initialize and build the pipeline
+rf_model = Pipeline([
+    ('ColumnTransformer', transformer),
+    ('Model', RandomForestRegressor())
 ])
 ```
 
 ### Additional Models Tested
-We also tested other models for comparison, including:
-- **Multiple Linear Regression:** To understand the linear relationships between features and the target variable.
-- **Linear Regression:** As a baseline model for comparison with more complex models.
+For comparative analysis, the following models were also tested:
+- **Multiple Linear Regression:** Assessed to understand linear relationships between features and the target variable.
+- **Linear Regression:** Served as a baseline model for comparison with more complex models.
 
 ```python
 from sklearn.linear_model import LinearRegression
 
-linear_model = LinearRegression()
+# Define the pipeline for Multiple Linear Regression
 mlr_model = Pipeline([
     ('ColumnTransformer', transformer),
-    ('Model', linear_model)
+    ('Model', LinearRegression())
 ])
-
-# Model training and evaluation for these models were performed to compare with Random Forest.
 ```
 
 ## Model Evaluation
-We evaluated all models using various metrics:
+Models were evaluated using the following metrics:
 - **R2 Score:** Indicates how well the model explains the variance in the target variable.
-- **RMSE (Root Mean Squared Error):** Measures the average magnitude of the prediction errors.
-- **Cross-Validation:** Provides insight into the model's performance on unseen data.
+- **RMSE (Root Mean Squared Error):** Measures the average magnitude of prediction errors.
+- **Cross-Validation:** Assesses model performance on unseen data.
 
 Final Evaluation Metrics for Random Forest Regressor:
 - **Test R2:** 0.8551
@@ -97,43 +108,33 @@ Final Evaluation Metrics for Random Forest Regressor:
 - **Cross-Validated RMSE:** 12661.31
 - **Cross-Validated R2:** 0.8081
 
-## Future Studies: Multicollinearity
-We have identified multicollinearity as a potential area for future exploration. This would involve:
-- **Variance Inflation Factor (VIF):** To detect and measure the multicollinearity among features.
-- **Feature Correlation Matrix:** To visualize correlations between features and identify any that might be highly correlated.
-
-Conducting a multicollinearity study would help us understand the relationships between features better and ensure that the model is not adversely affected by redundant information.
-
 ## Model Saving & Deployment
-The trained Random Forest Regressor model was saved using Python's `pickle` module. This allows for easy loading and deployment in future projects or production environments.
+The trained Random Forest Regressor model is saved using Python's `pickle` module, allowing for easy future use and deployment.
 
 ```python
 import pickle
 
-# Save the pipeline and model to a file
-with open('rf3_pipeline.pkl', 'wb') as file:
-    pickle.dump(rf3, file)
+# Save the pipeline and model
+with open('rf_model_pipeline.pkl', 'wb') as file:
+    pickle.dump(rf_model, file)
 
-# Load the saved pipeline and model
-with open('rf3_pipeline.pkl', 'rb') as file):
+# Load the saved model
+with open('rf_model_pipeline.pkl', 'rb') as file:
     loaded_pipeline = pickle.load(file)
 ```
 
 ## Results and Conclusions
-The Random Forest Regressor model demonstrated strong predictive performance, making it a viable tool for estimating car prices based on the given features. The additional tests with multiple linear regression and linear regression models provided valuable insights into the linear relationships between features, while the future multicollinearity study is planned to further enhance model robustness.
+The Random Forest Regressor demonstrated strong performance, making it an effective tool for predicting car prices. The comparative analysis with multiple linear regression and linear regression models provided insights into their relative performance.
 
 ## Next Steps
-- **Multicollinearity Study:** Conduct the planned study to understand feature correlations and their impact on model performance.
-- **Hyperparameter Tuning:** Further refine the model parameters to improve performance.
-- **Feature Engineering:** Explore additional features that might enhance the model's accuracy.
-- **Deployment:** Consider deploying the model in a production environment using platforms like AWS, Azure, or Heroku.
-- **Model Interpretability:** Implement techniques like SHAP or LIME to better understand feature importance.
+- **Deployment:** Explore deployment options using platforms such as AWS, Azure, or Heroku.
+- **Model Interpretability:** Implement methods like SHAP or LIME to understand feature importance.
 
 ## Getting Started
 To run this project locally:
 1. Clone this repository.
 2. Install the required dependencies using `pip install -r requirements.txt`.
-3. Run the Jupyter notebook or Python scripts provided in the repository.
+3. Execute the provided Jupyter notebook or Python scripts.
 4. Use the saved model for predictions or further analysis.
 
 ## References
