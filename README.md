@@ -127,7 +127,7 @@ with open('rf_model_pipeline.pkl', 'rb') as file:
 The Random Forest Regressor demonstrated strong performance, making it an effective tool for predicting car prices. The comparative analysis with multiple linear regression and linear regression models provided insights into their relative performance.
 
 ## Next Steps
-- **Deployment:** Explore deployment options using platforms such as AWS, Azure, or Heroku.
+- **Deployment:** Explore deployment options using platforms such as AWS or Azure
 - **Model Interpretability:** Implement methods like SHAP or LIME to understand feature importance.
 
 ## Getting Started
