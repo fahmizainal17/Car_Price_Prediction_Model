@@ -11,10 +11,12 @@
 6. [Model Evaluation](#model-evaluation)
 7. [Additional Models Tested](#additional-models-tested)
 8. [Model Saving & Deployment](#model-saving--deployment)
-9. [Results and Conclusions](#results-and-conclusions)
-10. [Next Steps](#next-steps)
-11. [Getting Started](#getting-started)
-12. [References](#references)
+9. [Fundamentals](#fundamentals)
+10. [Advanced Concepts](#advanced-concepts)
+11. [Results and Conclusions](#results-and-conclusions)
+12. [Next Steps](#next-steps)
+13. [Getting Started](#getting-started)
+14. [References](#references)
 
 ---
 
@@ -33,7 +35,13 @@ The project consists of the following key sections:
 
 ## **🔧 Technologies Used**
 
-<div> <h1 style="text-align: center;">Machine Learning with Scikit-Learn, Pickle, and Python</h1> <img style="text-align: left" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" width="10%" alt="Scikit-Learn Logo" /> <img style="text-align: left" src="https://img.icons8.com/color/48/000000/python.png" width="10%" alt="Python Logo" /> <img style="text-align: left" src="https://raw.githubusercontent.com/FriendsOfPHP/pickle_logo/1961ac469151f43923eed29b2649ea26006e221a/pickle.svg" width="10%" alt="Pickle Logo" /> </div> <br>
+<div>
+    <h1 style="text-align: center;">Machine Learning with Python, Scikit-Learn, and Pickle</h1>
+    <img style="text-align: left" src="https://img.icons8.com/color/48/000000/python.png" width="10%" alt="Python Logo" />
+    <img style="text-align: left" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" width="10%" alt="Scikit-Learn Logo" />
+    <img style="text-align: left" src="https://raw.githubusercontent.com/FriendsOfPHP/pickle_logo/1961ac469151f43923eed29b2649ea26006e221a/pickle.svg" width="10%" alt="Pickle Logo" />
+</div>
+<br>
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
@@ -144,25 +152,54 @@ with open('rf_model_pipeline.pkl', 'rb') as file:
     loaded_pipeline = pickle.load(file)
 ```
 
-## **9. Results and Conclusions 🏁**
+---
+
+## **9. Fundamentals 🧩**
+### **Understanding Regression Models:**
+Regression models are used for predicting a continuous outcome variable based on one or more predictor variables. In this project, regression models like Random Forest and Linear Regression are utilized to predict car prices.
+
+### **Feature Engineering:**
+Feature engineering involves creating new input features from existing ones to improve model performance. In this project, engineered features like `days_on_market` and `car_age_at_sale` help capture additional information that may influence car prices.
+
+### **Model Evaluation Metrics:**
+- **R² Score:** A statistical measure that indicates how well the regression predictions approximate the real data points.
+- **RMSE:** A metric that measures the average magnitude of the error, giving an idea of the prediction accuracy of the regression model.
+
+---
+
+## **10. Advanced Concepts 🚀**
+### **Random Forest Regressor:**
+A Random Forest Regressor is an ensemble learning method that builds multiple decision trees and merges their results to improve predictive accuracy and control overfitting. It’s robust against noise and provides better performance compared to individual decision trees.
+
+### **Pipeline in Scikit-Learn:**
+Pipelines are used in Scikit-Learn to automate the workflow of machine learning models, allowing for seamless data preprocessing and model training steps. In this project, the pipeline incorporates data transformation steps and the Random Forest model, ensuring streamlined and repeatable processes.
+
+### **Model Deployment with Pickle:**
+Pickle is a Python module used to serialize and deserialize Python objects. It allows saving the trained model, so it can be loaded and used for future predictions without retraining.
+
+---
+
+## **11. Results and Conclusions 🏁**
 The Random Forest Regressor demonstrated strong performance, making it an effective tool for predicting car prices. The comparative analysis with multiple linear regression and linear regression models provided valuable insights into the relative performance of different approaches.
 
-## **10. Next Steps ⏭️**
+## **12. Next Steps ⏭️**
 - **Deployment:** Explore deployment options using platforms such as AWS or Azure.
 - **Model Interpretability:** Implement methods like SHAP or LIME to understand feature importance and make the model more interpretable.
 
-## **11. Getting Started 🛠️**
+## **13. Getting Started 🛠️**
 To run this project locally:
 1. **Clone this repository.**
 2. **Install the required dependencies** using `pip install -r requirements.txt`.
 3. **Execute the provided Jupyter notebook or Python scripts** to run the analysis.
 4. **Use the saved model** for predictions or further analysis.
 
-## **12. References 📚**
+## **14. References 📚**
 - [Scikit-learn Documentation](https://scikit-learn.org/stable/user_guide.html)
 - [Pandas Documentation](https://pandas.pydata.org/pandas-docs/stable/)
 - [Matplotlib Documentation](https://matplotlib.org/stable/contents.html)
-- [SHAP Documentation](https://shap.readthedocs.io/en/latest/)
+- [SHAP Documentation](https://shap.readthed
+
+ocs.io/en/latest/)
 - [LIME Documentation](https://github.com/marcotcr/lime)
 
 --- 
