@@ -33,13 +33,7 @@ The project consists of the following key sections:
 
 ## **🔧 Technologies Used**
 
-<div>
-    <h1 style="text-align: center;">Machine Learning with Scikit-Learn and Python</h1>
-    <img style="text-align: left" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" width="10%" alt="Scikit-Learn Logo" />
-    <img style="text-align: left" src="https://img.icons8.com/color/48/000000/python.png" width="10%" alt="Python Logo" />
-    <img style="text-align: left" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fgithub.com%2FFriendsOfPHP%2Fpickle_logo&psig=AOvVaw1XG5eyTKct6KWKoFCOvTRY&ust=1724912639573000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKCev7uGl4gDFQAAAAAdAAAAABAE" width="10%" alt="Pickle Logo" />
-</div>
-<br>
+<div> <h1 style="text-align: center;">Machine Learning with Scikit-Learn, Pickle, and Python</h1> <img style="text-align: left" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" width="10%" alt="Scikit-Learn Logo" /> <img style="text-align: left" src="https://img.icons8.com/color/48/000000/python.png" width="10%" alt="Python Logo" /> <img style="text-align: left" src="https://raw.githubusercontent.com/FriendsOfPHP/pickle_logo/1961ac469151f43923eed29b2649ea26006e221a/pickle.svg" width="10%" alt="Pickle Logo" /> </div> <br>
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
