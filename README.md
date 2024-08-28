@@ -1,4 +1,6 @@
-# **Predicting Car Prices with Random Forest Regressor 🚗**
+# **🚗 Predicting Car Prices with Random Forest Regressor**
+
+---
 
 ## **📋 Table of Contents**
 1. [Introduction](#introduction)
@@ -26,6 +28,24 @@ The project consists of the following key sections:
 - **🤖 Model Building:** Constructing and tuning the Random Forest Regressor, with comparison to other models.
 - **📊 Model Evaluation:** Assessing model performance using metrics such as R² Score, RMSE, and Cross-Validation.
 - **💾 Model Saving & Deployment:** Saving and deploying the trained model for future use.
+
+---
+
+## **🔧 Technologies Used**
+
+<div>
+    <h1 style="text-align: center;">Machine Learning with Scikit-Learn and Python</h1>
+    <img style="text-align: left" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" width="10%" alt="Scikit-Learn Logo" />
+    <img style="text-align: left" src="https://img.icons8.com/color/48/000000/python.png" width="10%" alt="Python Logo" />
+    <img style="text-align: left" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fgithub.com%2FFriendsOfPHP%2Fpickle_logo&psig=AOvVaw1XG5eyTKct6KWKoFCOvTRY&ust=1724912639573000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKCev7uGl4gDFQAAAAAdAAAAABAE" width="10%" alt="Pickle Logo" />
+</div>
+<br>
+
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Pickle](https://img.shields.io/badge/Pickle-77B063?style=for-the-badge&logo=python&logoColor=white)
+
+---
 
 ## **3. Data Preparation 🛠️**
 The dataset used includes various features that impact car pricing. The key steps taken during data preparation include:
@@ -151,4 +171,4 @@ To run this project locally:
 - [SHAP Documentation](https://shap.readthedocs.io/en/latest/)
 - [LIME Documentation](https://github.com/marcotcr/lime)
 
----
+--- 
