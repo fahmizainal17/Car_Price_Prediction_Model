@@ -1,4 +1,4 @@
-# **🚗 Predicting Car Prices with Random Forest Regressor 🚗**
+# **Predicting Car Prices with Random Forest Regressor 🚗**
 
 ## **📋 Table of Contents**
 1. [Introduction](#introduction)
